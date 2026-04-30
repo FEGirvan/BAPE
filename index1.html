@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BANANAAPE | The Jungle Economy</title>
+
+<meta name="description" content="This is not a token. This is a jungle economy. Built by apes. Powered by chaos.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://terminal.jup.ag/main-v4.js"></script>
+
+<style>
+body {
+background:#0a0a0b;
+color:#fff;
+font-family:Inter,sans-serif;
+overflow-x:hidden;
+}
+
+.hero {
+background: radial-gradient(circle,#ffe60020 0%,#0a0a0b 80%);
+}
+
+.gold {
+background:linear-gradient(to right,#ffe600,#ffae00);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+font-weight:800;
+}
+
+.glass {
+background:rgba(255,255,255,.03);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:16px;
+}
+
+.btn {
+background:linear-gradient(90deg,#ffe600,#ffae00);
+color:#000;
+font-weight:700;
+transition:.3s;
+}
+.btn:hover { transform:scale(1.05); }
+
+.banana {
+position:fixed;
+top:-80px;
+font-size:24px;
+opacity:.4;
+animation:fall linear infinite;
+z-index:-1;
+}
+
+@keyframes fall {
+0%{transform:translateY(-80px) rotate(0);opacity:0;}
+10%{opacity:.4;}
+100%{transform:translateY(120vh) rotate(360deg);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🍌 BANANA RAIN -->
+<script>
+function spawnBanana(){
+let b=document.createElement("div");
+b.className="banana";
+b.innerText="🍌";
+b.style.left=Math.random()*100+"vw";
+b.style.animationDuration=(Math.random()*50+40)+"s";
+document.body.appendChild(b);
+setTimeout(()=>b.remove(),60000);
+}
+setInterval(spawnBanana,5000);
+</script>
+
+<!-- 🚀 HERO -->
+<section class="hero min-h-screen flex flex-col justify-center items-center text-center px-6">
+
+<h1 class="text-5xl md:text-7xl font-bold mb-6">
+THIS IS NOT A TOKEN<br>
+<span class="gold">THIS IS A JUNGLE</span>
+</h1>
+
+<p class="max-w-xl text-gray-400 mb-8">
+BananaApe started as a joke.<br><br>
+
+Now it's a full-blown jungle economy.<br>
+
+No roadmap. No promises.<br>
+Just apes, bananas, and market chaos.
+</p>
+
+<div class="flex flex-col gap-4 w-full max-w-xs">
+
+<a href="#" class="btn py-3 rounded-xl text-center uppercase text-sm">
+Enter The Jungle
+</a>
+
+<button onclick="copyCA()" class="glass py-3 rounded-xl text-sm">
+Copy Contract Address
+</button>
+
+</div>
+
+</section>
+
+<!-- 💰 SWAP -->
+<section class="py-20 text-center px-6">
+
+<h2 class="text-2xl font-bold mb-6 gold">
+FEED THE APE
+</h2>
+
+<div id="swap" class="mx-auto glass p-4" style="max-width:420px;"></div>
+
+</section>
+
+<!-- 📊 CHART -->
+<section class="py-20 px-6 text-center">
+
+<h2 class="gold text-2xl mb-6">WATCH THE CHAOS</h2>
+
+<iframe id="chart" style="width:100%;max-width:900px;height:500px;border:none;border-radius:12px;"></iframe>
+
+</section>
+
+<!-- 🍌 TOKEN -->
+<section class="py-20 px-6 text-center">
+
+<h2 class="gold text-3xl mb-8">BANANA SUPPLY</h2>
+
+<p class="text-gray-400 mb-6">
+No VC. No insiders. No manipulation.<br>
+Every banana belongs to the jungle.
+</p>
+
+<div class="glass p-8 inline-block">
+<h3 class="text-2xl font-bold" id="supply">0</h3>
+<p class="text-yellow-400">$BAPE</p>
+</div>
+
+</section>
+
+<!-- 🌾 FARM -->
+<section class="py-20 px-6 text-center">
+
+<h2 class="gold text-2xl mb-4">BANANA FARM</h2>
+
+<p class="text-gray-400 mb-6">
+Stake. Earn. Multiply.<br>
+The jungle rewards active apes.
+</p>
+
+<a href="farm.html" class="btn px-6 py-3 rounded-xl">
+Open Farm
+</a>
+
+</section>
+
+<!-- 🐒 JOIN -->
+<section class="py-20 text-center px-6">
+
+<h2 class="text-3xl gold mb-6">JOIN THE APE ARMY</h2>
+
+<p class="text-gray-400 mb-8">
+This is not for everyone.<br>
+Only early apes survive the jungle.
+</p>
+
+<a href="#" class="btn px-8 py-3 rounded-xl">
+Join Now
+</a>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 text-center text-gray-600 text-xs">
+BANANAAPE © 2026<br>
+The jungle is early.
+</footer>
+
+<script>
+
+/* CONTRACT */
+const CA="ISI_CA_KAMU";
+
+/* COPY */
+function copyCA(){
+navigator.clipboard.writeText(CA);
+alert("CA copied!");
+}
+
+/* CHART */
+document.getElementById("chart").src=
+`https://dexscreener.com/solana/${CA}?embed=1&theme=dark`;
+
+/* SUPPLY ANIMATION */
+let s=0;
+let target=1000000000;
+function anim(){
+if(s<target){
+s+=target/60;
+document.getElementById("supply").innerText=
+Math.floor(s).toLocaleString();
+requestAnimationFrame(anim);
+}
+}
+anim();
+
+/* JUPITER */
+window.addEventListener("load",()=>{
+setTimeout(()=>{
+if(window.Jupiter){
+window.Jupiter.init({
+displayMode:"integrated",
+integratedTargetId:"swap",
+formProps:{
+initialInputMint:"So11111111111111111111111111111111111111112",
+initialOutputMint:CA
+},
+});
+}
+},1500);
+});
+
+</script>
+
+</body>
+</html>
