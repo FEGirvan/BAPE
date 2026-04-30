@@ -85,28 +85,34 @@ setInterval(spawnBanana,5000);
 </script>
 
 <!-- 🚀 HERO -->
-<section class="hero min-h-screen flex flex-col justify-center items-center text-center px-6 pt-10">
+<section class="hero min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
 
-<img src="G.PNG" class="logo-float w-20 h-20 mb-6 opacity-90">
+<!-- LOGO -->
+<div class="relative mb-8">
+    <div class="absolute inset-0 bg-yellow-500/20 blur-3xl rounded-full"></div>
+    <img src="G.PNG" class="relative w-40 md:w-60 rounded-full border-4 border-yellow-400/40 shadow-[0_0_60px_rgba(250,204,21,0.5)]">
+</div>
 
-<h1 class="text-5xl md:text-7xl font-bold mb-6">
+<!-- HEADLINE -->
+<h1 class="text-4xl md:text-7xl font-bold leading-tight mb-6">
 THIS IS NOT A TOKEN<br>
 <span class="gold">THIS IS A JUNGLE</span>
 </h1>
 
-<p class="max-w-xl text-gray-400 mb-6">
-BananaApe started as a joke.<br><br>
-Now it's a jungle economy.<br>
-<span class="text-yellow-400 font-bold">Early apes are accumulating.</span><br>
-If you're late — you watch.
+<!-- SUBTEXT -->
+<p class="text-gray-400 max-w-md text-sm md:text-lg mb-8">
+No roadmap. No promises.<br>
+Just apes, bananas, and market chaos.<br>
+<span class="text-yellow-400 font-bold">Early apes are already inside.</span>
 </p>
 
+<!-- BUTTON -->
 <div class="flex flex-col gap-3 w-full max-w-xs">
 
 <a href="https://twitter.com/intent/tweet?text=BANANAAPE%20IS%20TAKING%20OVER%20🍌🚀" 
 target="_blank"
 class="btn py-3 rounded-xl text-center uppercase text-sm">
-JOIN THE RAID
+ENTER THE JUNGLE
 </a>
 
 <button onclick="copyCA()" class="glass py-3 rounded-xl text-sm">
@@ -115,12 +121,13 @@ Copy Contract Address
 
 </div>
 
-<p class="text-green-400 text-xs mt-3 animate-pulse">
-▲ +27% last hour
+<!-- SOCIAL PROOF -->
+<p class="text-green-400 text-xs mt-4 animate-pulse">
+▲ jungle getting louder...
 </p>
 
-<p class="text-xs text-gray-500 mt-3">
-<span id="apeCount">1,247</span> apes already inside 🐒
+<p class="text-xs text-gray-500 mt-2">
+<span id="apeCount">1,247</span> apes inside 🐒
 </p>
 
 </section>
