@@ -6,22 +6,15 @@
 
 <title>BANANAAPE | The Jungle Economy</title>
 
-<meta name="description" content="This is not a token. This is a jungle economy. Built by apes. Powered by chaos.">
+<meta name="description" content="This is not a token. This is a jungle economy.">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://terminal.jup.ag/main-v4.js"></script>
 
 <style>
-body {
-background:#0a0a0b;
-color:#fff;
-font-family:Inter,sans-serif;
-overflow-x:hidden;
-}
+body {background:#0a0a0b;color:#fff;font-family:Inter,sans-serif;overflow-x:hidden;}
 
-.hero {
-background: radial-gradient(circle,#ffe60020 0%,#0a0a0b 80%);
-}
+.hero {background: radial-gradient(circle,#ffe60020 0%,#0a0a0b 80%);}
 
 .gold {
 background:linear-gradient(to right,#ffe600,#ffae00);
@@ -43,7 +36,7 @@ color:#000;
 font-weight:700;
 transition:.3s;
 }
-.btn:hover { transform:scale(1.05); }
+.btn:hover {transform:scale(1.05);}
 
 .banana {
 position:fixed;
@@ -59,10 +52,23 @@ z-index:-1;
 10%{opacity:.4;}
 100%{transform:translateY(120vh) rotate(360deg);opacity:0;}
 }
+
+.logo-float {
+animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-6px);}
+}
 </style>
 </head>
 
 <body>
+
+<!-- 🔥 TRENDING BAR -->
+<div class="fixed top-0 left-0 w-full text-center text-xs bg-yellow-500 text-black py-1 z-[9999] font-bold">
+🔥 TRENDING ON SOLANA MEMES 🔥
+</div>
 
 <!-- 🍌 BANANA RAIN -->
 <script>
@@ -71,7 +77,7 @@ let b=document.createElement("div");
 b.className="banana";
 b.innerText="🍌";
 b.style.left=Math.random()*100+"vw";
-b.style.animationDuration=(Math.random()*50+40)+"s";
+b.style.animationDuration=(Math.random()*60+40)+"s";
 document.body.appendChild(b);
 setTimeout(()=>b.remove(),60000);
 }
@@ -79,26 +85,28 @@ setInterval(spawnBanana,5000);
 </script>
 
 <!-- 🚀 HERO -->
-<section class="hero min-h-screen flex flex-col justify-center items-center text-center px-6">
+<section class="hero min-h-screen flex flex-col justify-center items-center text-center px-6 pt-10">
+
+<img src="G.PNG" class="logo-float w-20 h-20 mb-6 opacity-90">
 
 <h1 class="text-5xl md:text-7xl font-bold mb-6">
 THIS IS NOT A TOKEN<br>
 <span class="gold">THIS IS A JUNGLE</span>
 </h1>
 
-<p class="max-w-xl text-gray-400 mb-8">
+<p class="max-w-xl text-gray-400 mb-6">
 BananaApe started as a joke.<br><br>
-
-Now it's a full-blown jungle economy.<br>
-
-No roadmap. No promises.<br>
-Just apes, bananas, and market chaos.
+Now it's a jungle economy.<br>
+<span class="text-yellow-400 font-bold">Early apes are accumulating.</span><br>
+If you're late — you watch.
 </p>
 
-<div class="flex flex-col gap-4 w-full max-w-xs">
+<div class="flex flex-col gap-3 w-full max-w-xs">
 
-<a href="#" class="btn py-3 rounded-xl text-center uppercase text-sm">
-Enter The Jungle
+<a href="https://twitter.com/intent/tweet?text=BANANAAPE%20IS%20TAKING%20OVER%20🍌🚀" 
+target="_blank"
+class="btn py-3 rounded-xl text-center uppercase text-sm">
+JOIN THE RAID
 </a>
 
 <button onclick="copyCA()" class="glass py-3 rounded-xl text-sm">
@@ -107,75 +115,58 @@ Copy Contract Address
 
 </div>
 
+<p class="text-green-400 text-xs mt-3 animate-pulse">
+▲ +27% last hour
+</p>
+
+<p class="text-xs text-gray-500 mt-3">
+<span id="apeCount">1,247</span> apes already inside 🐒
+</p>
+
 </section>
 
 <!-- 💰 SWAP -->
 <section class="py-20 text-center px-6">
-
-<h2 class="text-2xl font-bold mb-6 gold">
-FEED THE APE
-</h2>
-
+<h2 class="text-2xl font-bold mb-6 gold">FEED THE APE</h2>
 <div id="swap" class="mx-auto glass p-4" style="max-width:420px;"></div>
-
 </section>
 
 <!-- 📊 CHART -->
 <section class="py-20 px-6 text-center">
-
 <h2 class="gold text-2xl mb-6">WATCH THE CHAOS</h2>
-
 <iframe id="chart" style="width:100%;max-width:900px;height:500px;border:none;border-radius:12px;"></iframe>
-
 </section>
 
 <!-- 🍌 TOKEN -->
 <section class="py-20 px-6 text-center">
-
 <h2 class="gold text-3xl mb-8">BANANA SUPPLY</h2>
-
 <p class="text-gray-400 mb-6">
 No VC. No insiders. No manipulation.<br>
 Every banana belongs to the jungle.
 </p>
-
 <div class="glass p-8 inline-block">
-<h3 class="text-2xl font-bold" id="supply">0</h3>
+<h3 id="supply" class="text-2xl font-bold">0</h3>
 <p class="text-yellow-400">$BAPE</p>
 </div>
-
 </section>
 
-<!-- 🌾 FARM -->
+<!-- 🐋 WHALE ALERT -->
+<div id="whaleAlert" class="fixed top-16 right-6 z-[999] text-xs font-bold"></div>
+
+<!-- ⚡ LIVE BUY FEED -->
+<div id="liveFeed" class="fixed bottom-6 left-6 z-[999] space-y-2 text-xs font-bold"></div>
+
+<!-- 🐦 FAKE TWITTER -->
 <section class="py-20 px-6 text-center">
-
-<h2 class="gold text-2xl mb-4">BANANA FARM</h2>
-
-<p class="text-gray-400 mb-6">
-Stake. Earn. Multiply.<br>
-The jungle rewards active apes.
-</p>
-
-<a href="farm.html" class="btn px-6 py-3 rounded-xl">
-Open Farm
-</a>
-
+<h2 class="text-2xl gold mb-6">JUNGLE SIGNALS</h2>
+<div id="tweetFeed" class="max-w-md mx-auto space-y-4 text-left"></div>
 </section>
 
-<!-- 🐒 JOIN -->
-<section class="py-20 text-center px-6">
-
-<h2 class="text-3xl gold mb-6">JOIN THE APE ARMY</h2>
-
-<p class="text-gray-400 mb-8">
-This is not for everyone.<br>
-Only early apes survive the jungle.
-</p>
-
-<a href="#" class="btn px-8 py-3 rounded-xl">
-Join Now
-</a>
-
+<!-- 🎮 MINI GAME -->
+<section class="py-20 text-center">
+<h2 class="text-2xl gold mb-6">CLICK THE BANANA 🍌</h2>
+<button onclick="clickBanana()" class="text-6xl hover:scale-125 transition">🍌</button>
+<p id="bananaScore" class="mt-4 text-yellow-400 font-bold">0 bananas fed</p>
 </section>
 
 <!-- FOOTER -->
@@ -186,7 +177,7 @@ The jungle is early.
 
 <script>
 
-/* CONTRACT */
+/* CA */
 const CA="ISI_CA_KAMU";
 
 /* COPY */
@@ -196,20 +187,17 @@ alert("CA copied!");
 }
 
 /* CHART */
-document.getElementById("chart").src=
+document.getElementById("chart").src =
 `https://dexscreener.com/solana/${CA}?embed=1&theme=dark`;
 
-/* SUPPLY ANIMATION */
-let s=0;
-let target=1000000000;
+/* SUPPLY */
+let s=0,target=1000000000;
 function anim(){
 if(s<target){
 s+=target/60;
-document.getElementById("supply").innerText=
-Math.floor(s).toLocaleString();
+document.getElementById("supply").innerText=Math.floor(s).toLocaleString();
 requestAnimationFrame(anim);
-}
-}
+}}
 anim();
 
 /* JUPITER */
@@ -222,11 +210,54 @@ integratedTargetId:"swap",
 formProps:{
 initialInputMint:"So11111111111111111111111111111111111111112",
 initialOutputMint:CA
-},
+}
 });
 }
 },1500);
 });
+
+/* APE COUNTER */
+let count=1247;
+setInterval(()=>{
+count+=Math.floor(Math.random()*3);
+document.getElementById("apeCount").innerText=count.toLocaleString();
+},2000);
+
+/* LIVE BUY */
+const names=["ApeKing","BananaLord","MoonApe","JungleTrader"];
+setInterval(()=>{
+const div=document.createElement("div");
+div.className="bg-black/80 border border-yellow-500/30 px-4 py-2 rounded-xl";
+div.innerHTML=`<span class="text-green-400">${names[Math.floor(Math.random()*names.length)]}</span> bought <span class="text-yellow-400">${(Math.random()*3+0.2).toFixed(2)} SOL</span>`;
+document.getElementById("liveFeed").appendChild(div);
+setTimeout(()=>div.remove(),4000);
+},3000);
+
+/* WHALE */
+setInterval(()=>{
+const div=document.createElement("div");
+div.className="bg-purple-600 px-4 py-2 rounded-xl";
+div.innerHTML=`🐋 WHALE BOUGHT ${(Math.random()*50+20).toFixed(1)} SOL`;
+document.getElementById("whaleAlert").appendChild(div);
+setTimeout(()=>div.remove(),5000);
+},15000);
+
+/* FAKE TWEETS */
+const tweets=["this might be 100x","apes accumulating","chart looks insane"];
+setInterval(()=>{
+const div=document.createElement("div");
+div.className="bg-black/60 p-4 rounded-xl";
+div.innerHTML=`<p>${tweets[Math.floor(Math.random()*tweets.length)]}</p>`;
+document.getElementById("tweetFeed").prepend(div);
+setTimeout(()=>div.remove(),8000);
+},4000);
+
+/* GAME */
+let score=0;
+function clickBanana(){
+score++;
+document.getElementById("bananaScore").innerText=score+" bananas fed";
+}
 
 </script>
 
