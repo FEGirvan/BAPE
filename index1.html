@@ -3,163 +3,240 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BANANAAPE | PRO SWAP</title>
+
+<title>BANANAAPE | The Jungle Economy</title>
+<meta name="description" content="This is not a token. This is a jungle economy.">
 
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-body{background:#0a0a0b;color:#fff;font-family:Inter,sans-serif;}
-.glass{background:rgba(255,255,255,.05);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:18px;}
-.gold{background:linear-gradient(to right,#ffe600,#ffae00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900;}
-input{background:transparent;outline:none;width:100%;}
-button:disabled{opacity:.5;cursor:not-allowed;}
-.spinner{border:2px solid #333;border-top:2px solid #ffe600;border-radius:50%;width:16px;height:16px;animation:spin 1s linear infinite;}
-@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+body {background:#0a0a0b;color:#fff;font-family:Inter,sans-serif;}
+.hero {background: radial-gradient(circle,#ffe60020 0%,#0a0a0b 80%);}
+.gold {
+background:linear-gradient(to right,#ffe600,#ffae00);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+font-weight:800;
+}
+.glass {
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,.1);
+border-radius:16px;
+}
+.swap-box {max-width:420px;margin:auto;padding:20px;border-radius:20px;background:#111;}
+input{background:none;border:none;color:#fff;outline:none;width:100%;}
+button{transition:.2s;}
 </style>
 </head>
 
-<body class="flex items-center justify-center min-h-screen">
+<body>
 
-<div class="glass p-6 w-full max-w-md">
+<!-- HERO -->
+<section class="hero min-h-screen flex flex-col justify-center items-center text-center px-6">
 
-<h2 class="text-xl gold mb-4 text-center">FEED THE APE</h2>
+<img src="G.PNG" class="w-40 md:w-56 rounded-full border-4 border-yellow-400/40 mb-6">
 
-<!-- WALLET -->
-<div class="flex justify-between items-center mb-4">
-<button onclick="connectWallet()" id="walletBtn" class="bg-yellow-500 text-black px-3 py-1 rounded-lg text-sm font-bold">Connect</button>
-<span id="balance" class="text-xs text-gray-400">Balance: --</span>
+<h1 class="text-4xl md:text-6xl font-bold mb-6">
+THIS IS NOT A TOKEN<br>
+<span class="gold">THIS IS A JUNGLE</span>
+</h1>
+
+<p class="text-gray-400 mb-6">Apes farm. Apes win. 🍌</p>
+
+<div class="flex flex-col gap-3 w-full max-w-xs">
+<button onclick="copyCA()" class="glass px-6 py-3 rounded-xl">Copy CA</button>
+<a href="farm.html" class="px-6 py-3 bg-yellow-500 text-black rounded-xl font-bold">ENTER FARM</a>
 </div>
 
-<!-- INPUT -->
-<div class="mb-3">
-<p class="text-xs text-gray-400 mb-1">You pay (SOL)</p>
-<input id="amount" placeholder="0.0">
+</section>
+
+<!-- WALLET BAR -->
+<div class="fixed top-4 right-4 z-50">
+<button onclick="connectWallet()" id="connectBtn" class="bg-yellow-500 text-black px-4 py-2 rounded-xl font-bold">
+Connect Wallet
+</button>
+<p id="walletInfo" class="text-xs text-gray-400 mt-1 text-right"></p>
 </div>
 
-<div class="mb-3">
-<p class="text-xs text-gray-400 mb-1">You receive ($BAPE)</p>
-<input id="out" disabled>
+<!-- STATS -->
+<section class="py-16 px-6 text-center">
+<h2 class="gold text-2xl mb-10">JUNGLE STATS</h2>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+<div class="glass p-4"><p>TVL</p><p id="tvl">--</p></div>
+<div class="glass p-4"><p>APR</p><p id="apr">--</p></div>
+<div class="glass p-4"><p>Users</p><p id="users">--</p></div>
+<div class="glass p-4"><p>Activity</p><p id="activity">--</p></div>
 </div>
+</section>
 
-<!-- INFO -->
-<div class="text-xs text-gray-400 space-y-1 mb-3">
-<p>Min Received: <span id="minReceived">--</span></p>
-<p>Price Impact: <span id="impact">--</span></p>
-</div>
+<!-- SWAP -->
+<section class="py-16 text-center">
+<h2 class="gold text-2xl mb-6">SWAP</h2>
 
-<!-- SLIPPAGE -->
-<select id="slippage" class="w-full mb-3 bg-black border p-2 text-sm">
-<option value="50">0.5%</option>
-<option value="100" selected>1%</option>
-<option value="300">3%</option>
-</select>
+<div class="swap-box">
 
-<!-- BUTTONS -->
-<button onclick="getQuote()" id="quoteBtn" class="bg-yellow-500 text-black w-full py-2 rounded mb-2">
-Get Price
+<p class="text-xs text-gray-400 mb-2 text-left">From (SOL)</p>
+<input id="amount" placeholder="0.0" class="mb-4 text-lg">
+
+<p class="text-xs text-gray-400 mb-2 text-left">To ($BAPE)</p>
+<input id="out" disabled class="mb-4 text-lg">
+
+<button onclick="getQuote()" class="bg-yellow-500 text-black w-full py-2 rounded mb-2">
+Get Quote
 </button>
 
-<button onclick="swap()" id="swapBtn" disabled class="bg-green-500 w-full py-2 rounded flex justify-center items-center gap-2">
-<span id="swapText">Swap</span>
+<button onclick="executeSwap()" id="swapBtn" class="bg-green-500 w-full py-2 rounded opacity-50" disabled>
+Swap
 </button>
 
-<p id="status" class="text-xs mt-3 text-center"></p>
+<p id="status" class="text-xs mt-3"></p>
 
 </div>
+</section>
+
+<!-- LIVE TX -->
+<section class="py-16 px-6 text-center">
+<h2 class="gold text-2xl mb-6">LIVE ACTIVITY</h2>
+<div id="txFeed" class="max-w-md mx-auto space-y-2 text-left"></div>
+</section>
+
+<footer class="py-10 text-center text-gray-600 text-xs">
+BANANAAPE © 2026
+</footer>
 
 <script type="module">
 
-import { Connection, VersionedTransaction } from "https://esm.sh/@solana/web3.js";
+import {
+  Connection,
+  Transaction
+} from "https://esm.sh/@solana/web3.js";
 
 const CA = "ISI_CA_KAMU";
-const connection = new Connection("https://rpc.helius.xyz/?api-key=API_KEY_KAMU");
+const API_STATS = "ISI_API_STATS_KAMU";
+const API_TX = "ISI_API_TX_KAMU";
 
-let wallet=null;
-let route=null;
+const connection = new Connection("https://api.mainnet-beta.solana.com");
 
-/* CONNECT */
-window.connectWallet = async () => {
-if(!window.solana) return alert("Install Phantom");
-const res = await window.solana.connect();
-wallet = res.publicKey;
-walletBtn.innerText = wallet.toString().slice(0,4)+"...";
-loadBalance();
+let wallet = null;
+let route = null;
+
+/* COPY */
+window.copyCA = () => {
+  navigator.clipboard.writeText(CA);
+  alert("Copied");
 };
 
-/* BALANCE */
-async function loadBalance(){
-const lamports = await connection.getBalance(wallet);
-balance.innerText = "Balance: "+(lamports/1e9).toFixed(2)+" SOL";
-}
+/* WALLET CONNECT */
+window.connectWallet = async () => {
+  try {
+    if (!window.solana) {
+      alert("Install Phantom Wallet");
+      return;
+    }
+    const res = await window.solana.connect();
+    wallet = res.publicKey;
+
+    document.getElementById("connectBtn").innerText = "Connected";
+    document.getElementById("walletInfo").innerText =
+      wallet.toString().slice(0,4)+"..."+wallet.toString().slice(-4);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 /* QUOTE */
 window.getQuote = async () => {
-const amt = parseFloat(amount.value);
-if(!amt) return;
+  let amt = parseFloat(document.getElementById("amount").value);
+  if (!amt) return;
 
-status.innerHTML='<div class="spinner"></div>';
+  const lamports = Math.floor(amt * 1e9);
 
-const lamports = Math.floor(amt * 1e9);
+  const res = await fetch(
+    `https://quote-api.jup.ag/v6/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=${CA}&amount=${lamports}`
+  );
 
-const res = await fetch(`https://quote-api.jup.ag/v6/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=${CA}&amount=${lamports}&slippageBps=${slippage.value}`);
-const data = await res.json();
+  const data = await res.json();
 
-if(!data.data || !data.data.length){
-status.innerText="No route";
-return;
-}
+  route = data.data[0];
 
-route = data.data[0];
+  document.getElementById("out").value =
+    (route.outAmount / 1e6).toFixed(2);
 
-out.value = (route.outAmount/1e6).toFixed(2);
-
-minReceived.innerText = (route.otherAmountThreshold/1e6).toFixed(2);
-impact.innerText = (route.priceImpactPct*100).toFixed(2)+"%";
-
-swapBtn.disabled=false;
-status.innerText="";
+  document.getElementById("swapBtn").disabled = false;
+  document.getElementById("swapBtn").classList.remove("opacity-50");
 };
 
-/* SWAP */
-window.swap = async () => {
-if(!wallet) return alert("Connect wallet");
+/* EXECUTE SWAP */
+window.executeSwap = async () => {
+  if (!wallet) return alert("Connect wallet first");
 
-swapBtn.disabled=true;
-swapText.innerHTML='<div class="spinner"></div>';
+  document.getElementById("status").innerText = "Swapping...";
 
-try{
+  try {
 
-const swapRes = await fetch("https://quote-api.jup.ag/v6/swap",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({
-route,
-userPublicKey:wallet.toString(),
-wrapAndUnwrapSol:true
-})
-});
+    const swapRes = await fetch("https://quote-api.jup.ag/v6/swap", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        route,
+        userPublicKey: wallet.toString(),
+      })
+    });
 
-const swapData = await swapRes.json();
+    const swapData = await swapRes.json();
 
-const tx = VersionedTransaction.deserialize(
-Uint8Array.from(atob(swapData.swapTransaction),c=>c.charCodeAt(0))
-);
+    const tx = Transaction.from(
+      Uint8Array.from(atob(swapData.swapTransaction), c => c.charCodeAt(0))
+    );
 
-const signed = await window.solana.signTransaction(tx);
+    tx.feePayer = wallet;
 
-const sig = await connection.sendRawTransaction(signed.serialize());
+    const signed = await window.solana.signTransaction(tx);
 
-status.innerHTML=`✅ <a href="https://solscan.io/tx/${sig}" target="_blank" class="text-green-400">View TX</a>`;
+    const sig = await connection.sendRawTransaction(signed.serialize());
 
-}catch(e){
-console.error(e);
-status.innerText="Swap failed";
-}
+    document.getElementById("status").innerText =
+      "Success: " + sig;
 
-swapBtn.disabled=false;
-swapText.innerText="Swap";
-
+  } catch (e) {
+    console.error(e);
+    document.getElementById("status").innerText = "Swap failed";
+  }
 };
+
+/* STATS */
+async function loadStats(){
+  try{
+    const r = await fetch(API_STATS);
+    const d = await r.json();
+    tvl.innerText="$"+d.tvl;
+    apr.innerText=d.apr+"%";
+    users.innerText=d.users;
+    activity.innerText=d.lastActivity;
+  }catch{}
+}
+setInterval(loadStats,15000); loadStats();
+
+/* TX */
+async function loadTx(){
+  try{
+    const r=await fetch(API_TX);
+    const data=await r.json();
+    const el=document.getElementById("txFeed");
+    el.innerHTML="";
+    data.forEach(tx=>{
+      let d=document.createElement("div");
+      d.className="glass p-2 flex justify-between";
+      let t=new Date(tx.time*1000).toLocaleTimeString();
+      d.innerHTML=`<span class="text-green-400">+${tx.amount} SOL</span><span>${t}</span>`;
+      el.appendChild(d);
+    });
+  }catch{}
+}
+setInterval(loadTx,10000); loadTx();
 
 </script>
 
