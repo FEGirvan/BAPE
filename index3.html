@@ -264,29 +264,42 @@ function copyCA() {
 document.addEventListener("DOMContentLoaded", function () { setTimeout(initJupiter, 1500); });
 async function initJupiter(){
     if(!window.Jupiter) return;
+
     window.Jupiter.init({
         displayMode: "integrated",
         integratedTargetId: "integrated-terminal",
+
         endpoint: "https://api.mainnet-beta.solana.com",
-        // INI PENTING: Paksa ke mode terang dan matikan deteksi user
-        colorScheme: "light",
-        useUserPreferredColorScheme: false,
-        formProps: { 
-            initialInputMint: "So11111111111111111111111111111111111111112", 
-            initialOutputMint: CA_KITA, 
-            fixedInputMint: true 
+
+        formProps: {
+            initialInputMint: "So11111111111111111111111111111111111111112",
+            initialOutputMint: CA_KITA,
+            fixedInputMint: true
         },
-        containerStyles: { 
-            borderRadius: "30px", 
-            width: "100%", 
-            background: "#ffffff", 
-            border: "4px solid #2d6a4f" 
+
+        containerStyles: {
+            borderRadius: "24px",
+            width: "100%",
+            background: "transparent",
+            border: "none",
+            boxShadow: "none"
         },
-        theme: { 
-            palette: { 
-                primary: "#2d6a4f",      
-                background: "#ffffff"    
-            } 
+
+        theme: {
+            palette: {
+                primary: "#2d6a4f",
+                secondary: "#40916c",
+                background: "transparent",
+                surface: "#ffffffcc",
+                text: "#1b4332",
+                textSecondary: "#2d6a4f"
+            },
+
+            borderRadius: {
+                large: "20px",
+                medium: "16px",
+                small: "12px"
+            }
         }
     });
 }
