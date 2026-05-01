@@ -265,18 +265,30 @@ document.addEventListener("DOMContentLoaded", function () { setTimeout(initJupit
 async function initJupiter(){
     if(!window.Jupiter) return;
     window.Jupiter.init({
-        displayMode: "integrated",
-        integratedTargetId: "integrated-terminal",
-        endpoint: "https://api.mainnet-beta.solana.com",
-        formProps: { initialInputMint: "So11111111111111111111111111111111111111112", initialOutputMint: CA_KITA, fixedInputMint: true },
-                containerStyles: { borderRadius: "24px", width: "100%", background: "#ffffff", border: "4px solid #2d6a4f" },
-        theme: { 
-            palette: { 
-                primary: "#2d6a4f",      // Warna Hijau Forest untuk tombol
-                background: "#f0fdf4"    // Warna Hijau Muda sangat halus untuk background swap
-            } 
-        }
-    });
+    displayMode: "integrated",
+    integratedTargetId: "integrated-terminal",
+    endpoint: "https://api.mainnet-beta.solana.com",
+    // TAMBAHKAN BARIS INI UNTUK MEMBUANG WARNA HITAM
+    colorScheme: "light", 
+    formProps: { 
+        initialInputMint: "So11111111111111111111111111111111111111112", 
+        initialOutputMint: CA_KITA, 
+        fixedInputMint: true 
+    },
+    containerStyles: { 
+        borderRadius: "24px", 
+        width: "100%", 
+        background: "#ffffff", 
+        border: "4px solid #2d6a4f" 
+    },
+    theme: { 
+        palette: { 
+            primary: "#2d6a4f",      
+            background: "#ffffff"    // Ini sekarang akan bekerja karena sudah dipaksa 'light'
+        } 
+    }
+});
+
 }
 
 
