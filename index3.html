@@ -268,11 +268,30 @@ async function initJupiter(){
         displayMode: "integrated",
         integratedTargetId: "integrated-terminal",
         endpoint: "https://api.mainnet-beta.solana.com",
-        formProps: { initialInputMint: "So11111111111111111111111111111111111111112", initialOutputMint: CA_KITA, fixedInputMint: true },
-        containerStyles: { borderRadius: "24px", width: "100%", background: "#ffffff", border: "1px solid #2d6a4f" },
-        theme: { palette: { primary: "#2d6a4f", background: "#ffffff" } }
+        // PAKSA MODE TERANG & MATIKAN DETEKSI OTOMATIS
+        colorScheme: "light",
+        useUserPreferredColorScheme: false, 
+        formProps: { 
+            initialInputMint: "So11111111111111111111111111111111111111112", 
+            initialOutputMint: CA_KITA, 
+            fixedInputMint: true 
+        },
+        containerStyles: { 
+            borderRadius: "30px", 
+            width: "100%", 
+            background: "#ffffff !important", // Tambahkan !important jika perlu
+            border: "4px solid #2d6a4f" 
+        },
+        theme: { 
+            palette: { 
+                primary: "#2d6a4f",      
+                background: "#ffffff"    
+            } 
+        }
     });
 }
+
+    
 
 function createBanana() {
     const banana = document.createElement('div');
