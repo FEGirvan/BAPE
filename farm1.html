@@ -74,18 +74,21 @@ body {
 
 <body class="hero-gradient min-h-screen">
 
-<nav class="p-6">
-    <div class="max-w-7xl mx-auto flex justify-between items-center glass-morphism px-6 py-4">
-        <a href="index.html" class="flex items-center space-x-3 transition-transform hover:scale-105">
-            <img src="G.jpg" class="w-10 h-10 rounded-full border-2 border-[#2d6a4f]">
-            <span class="font-fredoka text-xl md:text-2xl font-bold uppercase tracking-tight text-[#1b4332]">
+<nav class="p-4 md:p-6">
+    <div class="max-w-7xl mx-auto flex flex-row justify-between items-center glass-morphism px-4 py-3 md:px-6 md:py-4">
+        <!-- Bagian Logo -->
+        <a href="index.html" class="flex items-center space-x-2 md:space-x-3 transition-transform hover:scale-105 min-w-0">
+            <img src="G.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#2d6a4f] flex-shrink-0">
+            <span class="font-fredoka text-lg md:text-2xl font-bold uppercase tracking-tight text-[#1b4332] truncate">
                 BANANA<span class="text-[#2d6a4f]">APE</span>
             </span>
         </a>
-        <div class="flex items-center gap-3">
-            <img src="solana.PNG" alt="Solana" class="w-10 h-10 rounded-xl hidden md:block">
+        
+        <!-- Bagian Tombol -->
+        <div class="flex items-center gap-2 md:gap-3 flex-shrink-0">
+            <img src="solana.PNG" alt="Solana" class="w-8 h-8 rounded-xl hidden sm:block flex-shrink-0">
             <button id="wallet-adapter-btn" onclick="handleWalletAction()"
-                class="bg-[#2d6a4f] hover:bg-[#1b4332] px-6 py-2 rounded-xl font-fredoka text-[12px] border-b-4 border-[#1b4332] text-white font-bold uppercase transition-all shadow-lg">
+                class="bg-[#2d6a4f] hover:bg-[#1b4332] px-3 py-2 md:px-6 md:py-2 rounded-xl font-fredoka text-[10px] md:text-[12px] border-b-4 border-[#1b4332] text-white font-bold uppercase transition-all shadow-lg whitespace-nowrap">
                 Connect Wallet
             </button>
         </div>
