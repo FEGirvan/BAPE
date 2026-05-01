@@ -268,9 +268,9 @@ async function initJupiter(){
         displayMode: "integrated",
         integratedTargetId: "integrated-terminal",
         endpoint: "https://api.mainnet-beta.solana.com",
-        // PAKSA MODE TERANG & MATIKAN DETEKSI OTOMATIS
+        // INI PENTING: Paksa ke mode terang dan matikan deteksi user
         colorScheme: "light",
-        useUserPreferredColorScheme: false, 
+        useUserPreferredColorScheme: false,
         formProps: { 
             initialInputMint: "So11111111111111111111111111111111111111112", 
             initialOutputMint: CA_KITA, 
@@ -279,7 +279,7 @@ async function initJupiter(){
         containerStyles: { 
             borderRadius: "30px", 
             width: "100%", 
-            background: "#ffffff !important", // Tambahkan !important jika perlu
+            background: "#ffffff", 
             border: "4px solid #2d6a4f" 
         },
         theme: { 
@@ -290,6 +290,7 @@ async function initJupiter(){
         }
     });
 }
+
 
     
 
