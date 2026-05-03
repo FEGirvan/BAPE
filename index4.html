@@ -3,169 +3,306 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BANANAAPE | Jungle Protocol</title>
+<title>BANANAAPE | Forest Edition</title>
+
+<meta name="title" content="BANANAAPE | Forest Edition">
+<meta name="description" content="The coziest hyper meme ecosystem on Solana. Join the $BAPE forest today.">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://terminal.jup.ag/main-v4.js"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
-body{
-  background:#0b0f0c;
-  color:#e8fff4;
-  font-family:'Inter',sans-serif;
-  overflow-x:hidden;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+body {
+    background-color: #d1f2e5; 
+    color: #1a3c34;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-/* Glow */
-.glow{
-  text-shadow:0 0 20px rgba(0,255,150,0.8);
+.font-fredoka { font-family: 'Fredoka', sans-serif; }
+
+.glass-morphism {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 2px solid #2d6a4f;
+    border-radius: 25px;
 }
 
-/* Glass */
-.glass{
-  background:rgba(255,255,255,0.04);
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:24px;
+.hero-gradient {
+    background: radial-gradient(circle at center, #ffffff 0%, #d1f2e5 80%);
 }
 
-/* Button */
-.btn{
-  background:linear-gradient(135deg,#00ffa3,#00c27a);
-  color:#000;
-  font-weight:700;
-  border-radius:14px;
-  padding:14px;
-  transition:0.3s;
-}
-.btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 25px rgba(0,255,150,0.6);
+.gold-text {
+    background: linear-gradient(to bottom, #2d6a4f, #1b4332);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
 }
 
-/* Floating banana */
-.banana{
-  position:fixed;
-  top:-50px;
-  font-size:22px;
-  opacity:.3;
-  animation:fall linear infinite;
+.btn-primary {
+    background: #2d6a4f;
+    color: #fff;
+    border-bottom: 5px solid #1b4332;
+    transition: all 0.3s ease;
+    border-radius: 20px;
 }
-@keyframes fall{
-  to{transform:translateY(120vh) rotate(360deg);}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    background: #40916c;
 }
+
+.ape-glow {
+    filter: drop-shadow(0 0 30px rgba(255, 165, 0, 0.4)); 
+    border: 4px solid #ffffff;
+}
+
+.banana {
+    position: fixed;
+    top: -80px;
+    font-size: 24px;
+    opacity: .5;
+    animation: fall linear infinite;
+    z-index: -1;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-80px) rotate(0deg); opacity: 0; }
+    10% { opacity: .5; }
+    100% { transform: translateY(115vh) rotate(360deg); opacity: 0; }
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #d1f2e5; }
+::-webkit-scrollbar-thumb { background: #2d6a4f; border-radius: 10px; }
 </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative">
+<nav class="fixed w-full z-[60] px-4 py-6">
+    <div class="max-w-7xl mx-auto flex justify-between items-center glass-morphism px-6 py-4 border-2 border-[#2d6a4f]/20 bg-white/90">
+        <div class="flex items-center space-x-4">
+            <img src="G.jpg" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[#2d6a4f]/50">
+            <a href="index.html" class="font-fredoka text-xl md:text-2xl font-bold tracking-tight uppercase text-[#1b4332]">
+                BANANA<span class="text-[#2d6a4f]">APE</span>
+            </a>
+        </div>
 
-<h1 class="text-4xl md:text-7xl font-bold glow" style="font-family:Orbitron;">
-BANANAAPE 🍌
-</h1>
+        <div class="relative">
+            <button id="mobile-menu-button" class="group relative flex items-center justify-center p-1 rounded-2xl border-2 border-[#2d6a4f]/30 bg-white hover:shadow-[0_0_20px_rgba(45,106,79,0.3)] transition-all duration-300">
+                <img src="solana.PNG" alt="Solana" class="w-10 h-10 md:w-12 md:h-12 rounded-xl object-cover">
+            </button>
 
-<p class="mt-4 text-lg md:text-2xl text-green-300">
-NO BRAIN. ONLY BANANA. ONLY UP 🚀
-</p>
+            <div id="mobile-menu" class="absolute right-0 top-full mt-2 w-64 glass-morphism overflow-hidden hidden transition-all duration-300 z-[100] bg-white/95 border border-[#2d6a4f]/30 shadow-2xl">
+                <div class="px-6 py-3 bg-[#2d6a4f]/10 border-b border-[#2d6a4f]/10">
+                    <p class="text-[10px] font-fredoka text-[#2d6a4f] uppercase tracking-widest font-bold">
+                        <i class="fas fa-tree mr-2"></i> Forest Status
+                    </p>
+                </div>
+                <div class="px-6 py-4 space-y-3 border-b border-[#2d6a4f]/10">
+                    <div class="flex justify-between items-center">
+                        <span class="text-[10px] text-gray-500 font-fredoka uppercase">Stage</span>
+                        <span class="text-[10px] text-[#1b4332] font-bold font-fredoka">FAIR LAUNCH</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-[10px] text-gray-500 font-fredoka uppercase">Banana Farm</span>
+                        <a href="farm.html" class="text-[10px] text-[#2d6a4f] font-bold font-fredoka italic animate-pulse">OPEN APP</a>
+                    </div>
+                </div>
+                <a href="" target="_blank" class="block px-6 py-4 text-sm font-fredoka font-bold text-green-700 hover:bg-green-50">
+                    <i class="fab fa-telegram-plane mr-3"></i> Join Community
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
 
-<!-- FOMO -->
-<div class="mt-6 text-sm text-green-400 space-y-1">
-<div>🔥 1,284 Apes Joined Today</div>
-<div>💎 Liquidity Locked</div>
-<div>🚀 Early Entry Phase</div>
-</div>
+<section id="about" class="relative min-h-screen flex flex-col items-center justify-center pt-28 hero-gradient text-center px-6">
+    <div class="relative mb-8 mt-4">
+        <div class="absolute inset-0 bg-[#2d6a4f]/10 blur-3xl rounded-full"></div>
+        <img src="G.jpg" alt="Banana Ape Forest" class="relative w-44 h-44 md:w-60 md:h-60 rounded-3xl object-cover ape-glow">
+    </div>
 
-<!-- BUTTON -->
-<div class="mt-8 w-full max-w-xs space-y-3">
-<button onclick="scrollToSwap()" class="btn w-full">BUY $BAPE</button>
-<button onclick="copyCA()" class="glass w-full py-3">COPY CA</button>
-</div>
+    <h1 class="text-4xl md:text-7xl font-fredoka font-bold leading-none mb-4 tracking-tight text-[#1b4332]">
+        NO BRAIN <br>
+        <span class="gold-text">ONLY BANANA</span>
+    </h1>
 
+    <p class="text-[#2d6a4f] max-w-md mx-auto text-sm md:text-lg mb-8 font-medium mt-6">
+        The only dev who doesn't use charts. I just smell the bananas. <span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full">The tribe is forming. Don't snooze. Mode: Active Jungle 🌿</span>
+    </p>
+
+    <div class="flex flex-col gap-3 w-full max-w-xs mb-8">
+        <a href="" target="_blank" class="btn-primary py-3 rounded-xl font-fredoka text-lg font-bold uppercase text-center">
+            Join the Forest
+        </a>
+        <button onclick="copyCA()" class="group relative bg-white border border-[#2d6a4f]/20 py-3 rounded-xl font-fredoka text-xs font-bold text-[#1b4332] hover:bg-green-50 transition-all">
+            <span id="ca-text">Copy Forest Address</span>
+            <i class="fas fa-magic ml-2 text-orange-400"></i>
+        </button>
+    </div>
+
+    <div class="w-full max-w-4xl py-8 opacity-80 border-t border-[#2d6a4f]/10 mt-4">
+        <p class="text-[8px] font-fredoka text-[#2d6a4f] uppercase tracking-[0.3em] mb-6 text-center italic">Verified Forest Infrastructure</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 px-6">
+            <a href="#" id="chart-link-1" target="_blank" class="text-center group"><i class="fas fa-chart-line text-xl text-[#2d6a4f] group-hover:scale-125 transition-transform"></i></a>
+            <a href="https://jup.ag" id="swap-link" target="_blank" class="text-center group"><i class="fas fa-random text-xl text-[#2d6a4f] group-hover:scale-125 transition-transform"></i></a>
+            <a href="#" id="scan-link" target="_blank" class="text-center group"><i class="fas fa-search text-xl text-[#2d6a4f] group-hover:scale-125 transition-transform"></i></a>
+            <a href="#" id="launch-link" target="_blank" class="text-center group"><i class="fas fa-pills text-xl text-[#2d6a4f] group-hover:scale-125 transition-transform"></i></a>
+        </div>
+    </div>
 </section>
 
-<!-- SWAP -->
-<section id="swap" class="py-20 px-6 text-center">
-<h2 class="text-2xl font-bold mb-6 glow">Instant Swap</h2>
-
-<div class="max-w-md mx-auto glass p-3">
-<div id="jupiter-terminal"></div>
-</div>
+<section id="chart" class="py-12 px-6 max-w-6xl mx-auto">
+    <h2 class="font-fredoka text-2xl font-bold text-center mb-8 gold-text uppercase tracking-widest">Forest Market Tracker</h2>
+    <div class="glass-morphism p-2 md:p-4 border-2 border-[#2d6a4f]/30">
+        <iframe id="dex-iframe" src="" style="width:100%; height:600px; border:none; border-radius:20px;" allow="clipboard-write" loading="lazy" title="BAPE Live Chart"></iframe>
+    </div>
 </section>
 
-<!-- TOKENOMICS -->
-<section class="py-20 px-6 text-center">
-<h2 class="text-3xl font-bold glow mb-10">Tokenomics</h2>
-
-<div class="max-w-xl mx-auto glass p-6 space-y-4">
-<div class="flex justify-between">
-<span>Total Supply</span>
-<span>1,000,000,000</span>
-</div>
-
-<div class="flex justify-between">
-<span>Tax</span>
-<span>0%</span>
-</div>
-
-<div class="flex justify-between">
-<span>LP</span>
-<span>Burned</span>
-</div>
-</div>
+<section id="farm" class="py-10 px-6 max-w-4xl mx-auto border-t border-[#2d6a4f]/10">
+    <div class="glass-morphism p-6 md:p-8 border-2 border-[#2d6a4f]/30 bg-green-50/50">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="w-full md:w-2/5">
+                <img src="G.jpg" alt="Banana Farm" class="rounded-2xl border-4 border-white shadow-xl">
+            </div>
+            <div class="w-full md:w-3/5 text-center md:text-left">
+                <h2 class="font-fredoka text-xl md:text-2xl font-bold text-[#1b4332] mb-4">STAKING POWERED BY <span class="text-[#2d6a4f]">Streamflow</span></h2>
+                <p class="text-[#2d6a4f]/80 text-xs md:text-sm mb-6">Institutional-grade locking for our tribe. Safe bananas only.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-3 rounded-xl border border-[#2d6a4f]/20"><p class="text-[9px] text-gray-500 font-fredoka mb-1 uppercase tracking-tighter">Security</p><p class="text-[10px] text-[#1b4332] font-bold">AUDITED</p></div>
+                    <div class="bg-white p-3 rounded-xl border border-[#2d6a4f]/20"><p class="text-[9px] text-gray-500 font-fredoka mb-1 uppercase tracking-tighter">Rewards</p><p class="text-[10px] text-[#2d6a4f] font-bold">REAL-TIME</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="py-10 text-center text-sm text-green-500">
-BANANAAPE 2026 🍌
+<section id="tokenomics" class="py-20 px-6 max-w-4xl mx-auto border-t border-[#2d6a4f]/10">
+    <h2 class="font-fredoka text-3xl font-bold text-center mb-12 text-[#1b4332]">Forest Economics</h2>
+    <div class="glass-morphism p-8 md:p-12 space-y-8 mb-10 bg-white">
+        <div class="flex justify-between items-center border-b border-gray-100 pb-6">
+            <span class="text-gray-400 font-fredoka text-xs uppercase tracking-widest">Total Supply</span>
+            <div class="text-right"><div id="supply-count" class="text-2xl md:text-4xl font-bold font-fredoka text-[#1b4332]">0</div><div class="text-[#2d6a4f] font-bold font-fredoka text-sm mt-1">$BAPE</div></div>
+        </div>
+        <div class="flex justify-between items-center pb-6">
+            <span class="text-gray-400 font-fredoka text-xs uppercase tracking-widest">Fair Launch</span>
+            <div class="text-right"><div class="text-[#1b4332] font-bold font-fredoka text-sm md:text-xl">100% ORGANIC</div></div>
+        </div>
+    </div>
+</section>
+
+<section id="swap" class="py-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="font-fredoka text-2xl font-bold mb-4 text-[#1b4332]">Easy Swap $BAPE</h2>
+        <div class="flex justify-center">
+            <div id="integrated-terminal" class="glass-morphism p-2 bg-white" style="width:430px;max-width:100%;min-height:auto;border-radius:30px;"></div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-12 text-center border-t border-[#2d6a4f]/10 bg-white/50">
+    <div class="flex justify-center space-x-8 mb-8 text-2xl text-[#2d6a4f]">
+        <a href="https://x.com/bape_fun" target="_blank" class="hover:scale-125 transition-transform"><i class="fab fa-twitter"></i></a>
+        <a href="https://t.me/BAPE_fun" target="_blank" class="hover:scale-125 transition-transform"><i class="fab fa-telegram"></i></a>
+        <a href="whitepaper.html" target="_blank" class="hover:scale-125 transition-transform"><i class="fas fa-file-alt"></i></a>
+    </div>
+    <p class="text-[10px] text-[#1b4332] font-fredoka uppercase tracking-widest">BananaApe Empire &copy; 2026</p>
 </footer>
 
+<button id="toTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 z-[70] bg-[#2d6a4f] p-4 rounded-full hidden shadow-xl"><i class="fas fa-arrow-up text-white"></i></button>
+
 <script>
-const CA = "PASTE_CA_DISINI";
+const CA_KITA = "No Brain, Only Banana 🍌"; 
 
-/* COPY */
-function copyCA(){
-navigator.clipboard.writeText(CA);
-alert("CA Copied!");
+function updateAllLinks() {
+    if(!CA_KITA) return;
+    const dexIframe = document.getElementById('dex-iframe');
+    if(dexIframe) dexIframe.src = `https://dexscreener.com/solana/${CA_KITA}?embed=1&theme=light&trades=0&info=0`;
+    document.getElementById('chart-link-1').href = `https://dexscreener.com/solana/${CA_KITA}`;
+    document.getElementById('scan-link').href = `https://solscan.io/token/${CA_KITA}`;
+    document.getElementById('swap-link').href = `https://jup.ag/swap/SOL-${CA_KITA}`;
+    document.getElementById('launch-link').href = `https://pump.fun/${CA_KITA}`;
+}
+updateAllLinks();
+
+window.onscroll = function() {
+    const btn = document.getElementById("toTop");
+    if (document.documentElement.scrollTop > 500) { btn.classList.remove("hidden"); } else { btn.classList.add("hidden"); }
+};
+
+const menuBtn = document.getElementById('mobile-menu-button');
+const menu = document.getElementById('mobile-menu');
+if(menuBtn){ menuBtn.addEventListener('click', (e) => { e.stopPropagation(); menu.classList.toggle('hidden'); }); }
+
+const supplyCount = document.getElementById('supply-count');
+const supplyTarget = 1000000000;
+let currentSupply = 0;
+const updateCount = () => {
+    const increment = supplyTarget / 80;
+    if(currentSupply < supplyTarget){
+        currentSupply += increment;
+        supplyCount.innerText = Math.floor(currentSupply).toLocaleString();
+        setTimeout(updateCount,25);
+    } else { supplyCount.innerText = supplyTarget.toLocaleString(); }
+};
+const observer = new IntersectionObserver((entries)=>{if(entries[0].isIntersecting){updateCount(); observer.disconnect();}},{threshold:0.5});
+if(supplyCount) observer.observe(supplyCount);
+
+function copyCA() {
+    if(!CA_KITA) return;
+    navigator.clipboard.writeText(CA_KITA).then(()=>{
+        const btnText = document.getElementById("ca-text");
+        btnText.innerText = "CA Copied!";
+        setTimeout(()=>{btnText.innerText = "Copy Forest Address";},2000);
+    });
 }
 
-/* SCROLL */
-function scrollToSwap(){
-document.getElementById("swap").scrollIntoView({behavior:"smooth"});
-}
-
-/* JUPITER */
-window.addEventListener("load",()=>{
-if(window.Jupiter){
-window.Jupiter.init({
-displayMode:"integrated",
-integratedTargetId:"jupiter-terminal",
-formProps:{
-initialInputMint:"So11111111111111111111111111111111111111112",
-initialOutputMint:CA
-},
-containerStyles:{
-background:"transparent"
-}
+document.addEventListener("DOMContentLoaded", function () { setTimeout(initJupiter, 1500); });
+async function initJupiter(){
+    if(!window.Jupiter) return;
+    window.Jupiter.init({
+    displayMode: "integrated",
+    integratedTargetId: "integrated-terminal",
+    endpoint: "https://api.mainnet-beta.solana.com",
+    // TAMBAHKAN BARIS INI UNTUK MEMBUANG WARNA HITAM
+    colorScheme: "light", 
+    formProps: { 
+        initialInputMint: "So11111111111111111111111111111111111111112", 
+        initialOutputMint: CA_KITA, 
+        fixedInputMint: true 
+    },
+    containerStyles: { 
+        borderRadius: "24px", 
+        width: "100%", 
+        background: "#ffffff", 
+        border: "4px solid #2d6a4f" 
+    },
+    theme: { 
+        palette: { 
+            primary: "#2d6a4f",      
+            background: "#ffffff"    // Ini sekarang akan bekerja karena sudah dipaksa 'light'
+        } 
+    }
 });
-}
-});
 
-/* BANANA EFFECT */
-function banana(){
-const el=document.createElement("div");
-el.className="banana";
-el.innerText="🍌";
-el.style.left=Math.random()*100+"vw";
-el.style.animationDuration=(Math.random()*10+10)+"s";
-document.body.appendChild(el);
-setTimeout(()=>el.remove(),15000);
 }
-setInterval(banana,2000);
+
+
+function createBanana() {
+    const banana = document.createElement('div');
+    banana.classList.add('banana');
+    banana.innerText = '🍌';
+    banana.style.left = Math.random() * 100 + 'vw';
+    const duration = Math.random() * 30 + 30; 
+    banana.style.animationDuration = duration + 's';
+    document.body.appendChild(banana);
+    setTimeout(() => { banana.remove(); }, duration * 1000);
+}
+setInterval(createBanana, 6000);
 </script>
-
 </body>
 </html>
