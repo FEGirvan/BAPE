@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BANANAAPE | Jungle Protocol</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://terminal.jup.ag/main-v4.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  background:#0b0f0c;
+  color:#e8fff4;
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+
+/* Glow */
+.glow{
+  text-shadow:0 0 20px rgba(0,255,150,0.8);
+}
+
+/* Glass */
+.glass{
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:24px;
+}
+
+/* Button */
+.btn{
+  background:linear-gradient(135deg,#00ffa3,#00c27a);
+  color:#000;
+  font-weight:700;
+  border-radius:14px;
+  padding:14px;
+  transition:0.3s;
+}
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px rgba(0,255,150,0.6);
+}
+
+/* Floating banana */
+.banana{
+  position:fixed;
+  top:-50px;
+  font-size:22px;
+  opacity:.3;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(120vh) rotate(360deg);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative">
+
+<h1 class="text-4xl md:text-7xl font-bold glow" style="font-family:Orbitron;">
+BANANAAPE 🍌
+</h1>
+
+<p class="mt-4 text-lg md:text-2xl text-green-300">
+NO BRAIN. ONLY BANANA. ONLY UP 🚀
+</p>
+
+<!-- FOMO -->
+<div class="mt-6 text-sm text-green-400 space-y-1">
+<div>🔥 1,284 Apes Joined Today</div>
+<div>💎 Liquidity Locked</div>
+<div>🚀 Early Entry Phase</div>
+</div>
+
+<!-- BUTTON -->
+<div class="mt-8 w-full max-w-xs space-y-3">
+<button onclick="scrollToSwap()" class="btn w-full">BUY $BAPE</button>
+<button onclick="copyCA()" class="glass w-full py-3">COPY CA</button>
+</div>
+
+</section>
+
+<!-- SWAP -->
+<section id="swap" class="py-20 px-6 text-center">
+<h2 class="text-2xl font-bold mb-6 glow">Instant Swap</h2>
+
+<div class="max-w-md mx-auto glass p-3">
+<div id="jupiter-terminal"></div>
+</div>
+</section>
+
+<!-- TOKENOMICS -->
+<section class="py-20 px-6 text-center">
+<h2 class="text-3xl font-bold glow mb-10">Tokenomics</h2>
+
+<div class="max-w-xl mx-auto glass p-6 space-y-4">
+<div class="flex justify-between">
+<span>Total Supply</span>
+<span>1,000,000,000</span>
+</div>
+
+<div class="flex justify-between">
+<span>Tax</span>
+<span>0%</span>
+</div>
+
+<div class="flex justify-between">
+<span>LP</span>
+<span>Burned</span>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 text-center text-sm text-green-500">
+BANANAAPE 2026 🍌
+</footer>
+
+<script>
+const CA = "PASTE_CA_DISINI";
+
+/* COPY */
+function copyCA(){
+navigator.clipboard.writeText(CA);
+alert("CA Copied!");
+}
+
+/* SCROLL */
+function scrollToSwap(){
+document.getElementById("swap").scrollIntoView({behavior:"smooth"});
+}
+
+/* JUPITER */
+window.addEventListener("load",()=>{
+if(window.Jupiter){
+window.Jupiter.init({
+displayMode:"integrated",
+integratedTargetId:"jupiter-terminal",
+formProps:{
+initialInputMint:"So11111111111111111111111111111111111111112",
+initialOutputMint:CA
+},
+containerStyles:{
+background:"transparent"
+}
+});
+}
+});
+
+/* BANANA EFFECT */
+function banana(){
+const el=document.createElement("div");
+el.className="banana";
+el.innerText="🍌";
+el.style.left=Math.random()*100+"vw";
+el.style.animationDuration=(Math.random()*10+10)+"s";
+document.body.appendChild(el);
+setTimeout(()=>el.remove(),15000);
+}
+setInterval(banana,2000);
+</script>
+
+</body>
+</html>
