@@ -286,9 +286,9 @@ body {
             <div class="text-5xl mb-5">🦍</div>
 
             <div id="holder-count"
-                class="font-fredoka text-5xl font-bold text-[#1b4332] mb-2">
-                0
-            </div>
+class="font-fredoka text-5xl font-bold text-yellow-600 mb-2 animate-pulse">
+    SOON
+</div>
 
             <div class="font-fredoka uppercase tracking-widest text-yellow-700 text-sm">
                 On-Chain
@@ -455,7 +455,7 @@ setInterval(createBanana, 6000);
     
 animateValue("twitter-count", 0, 226, 1500);
 animateValue("telegram-count", 0, 114, 1500);
-animateValue("holder-count", 0, soon, 1000);
+document.getElementById("holder-count").innerText = "SOON";
     
 </script>
 </body>
