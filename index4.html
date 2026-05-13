@@ -391,27 +391,35 @@ function createBanana() {
 setInterval(createBanana, 6000);
 
  function animateValue(id, start, end, duration) {
+
+    const obj = document.getElementById(id);
+
+    // kalau nilainya sama
+    if (start === end) {
+        obj.innerText = end;
+        return;
+    }
+
     let range = end - start;
     let current = start;
     let increment = end > start ? 1 : -1;
     let stepTime = Math.abs(Math.floor(duration / range));
 
-    const obj = document.getElementById(id);
-
     const timer = setInterval(function () {
+
         current += increment;
         obj.innerText = current;
 
         if (current == end) {
             clearInterval(timer);
         }
+
     }, stepTime);
 }
-
-animateValue("twitter-count", 0, 223, 1500);
-animateValue("telegram-count", 0, 112, 1500);
-animateValue("holder-count", 0, 0, 1000);
     
+animateValue("twitter-count", 0, 226, 1500);
+animateValue("telegram-count", 0, 114, 1500);
+animateValue("holder-count", 0, 0, 1000);
     
 </script>
 </body>
