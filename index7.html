@@ -1,317 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BANANAAPE | ORGANIC JUNGLE APE</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>BANANAAPE | ORGANIC JUNGLE</title>
 
 <meta name="title" content="BANANAAPE">
-<meta name="description" content="No Brain. Only Banana. The most organic jungle ape on Solana 🍌">
+<meta name="description" content="No Brain. Only Banana 🍌">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://terminal.jup.ag/main-v4.js"></script>
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+rel="stylesheet"/>
 
 <style>
 
-html {
-    scroll-behavior: smooth;
+html{
+scroll-behavior:smooth;
 }
 
-body {
-    margin: 0;
-    overflow-x: hidden;
-    background: #d1f2e5;
-    color: #1b4332;
-    font-family: 'Inter', sans-serif;
+body{
+margin:0;
+overflow-x:hidden;
+font-family:'Inter',sans-serif;
+background:#d1f2e5;
+color:#1b4332;
 }
 
-/* ========================= */
+/* ======================= */
 /* GLOBAL */
-/* ========================= */
+/* ======================= */
 
-.font-fredoka {
-    font-family: 'Fredoka', sans-serif;
+.font-fredoka{
+font-family:'Fredoka',sans-serif;
 }
 
-.glass {
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(45,106,79,0.15);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+.glass{
+background:rgba(255,255,255,0.72);
+backdrop-filter:blur(14px);
+border:1px solid rgba(45,106,79,0.12);
+box-shadow:0 10px 40px rgba(0,0,0,.05);
 }
 
-.gold-text {
-    background: linear-gradient(to bottom, #2d6a4f, #1b4332);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.gold-text{
+background:linear-gradient(to bottom,#2d6a4f,#1b4332);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.btn-main {
-    background: #2d6a4f;
-    color: white;
-    border-radius: 24px;
-    padding: 18px 34px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: 'Fredoka', sans-serif;
-    transition: .3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.btn-main{
+background:#2d6a4f;
+color:#fff;
+padding:18px 34px;
+border-radius:24px;
+font-family:'Fredoka',sans-serif;
+font-weight:bold;
+text-transform:uppercase;
+transition:.3s ease;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
 }
 
-.btn-main:hover {
-    transform: translateY(-4px) scale(1.03);
-    background: #40916c;
+.btn-main:hover{
+transform:translateY(-4px) scale(1.03);
+background:#40916c;
 }
 
-/* ========================= */
+.section{
+padding:120px 20px;
+position:relative;
+z-index:2;
+}
+
+.section-title{
+font-size:clamp(3rem,7vw,6rem);
+line-height:.92;
+font-weight:700;
+font-family:'Fredoka',sans-serif;
+text-transform:uppercase;
+}
+
+/* ======================= */
 /* NAVBAR */
-/* ========================= */
+/* ======================= */
 
-.nav-wrap {
-    position: fixed;
-    top: 20px;
-    width: 100%;
-    z-index: 100;
-    padding: 0 20px;
+.nav-wrap{
+position:fixed;
+top:20px;
+width:100%;
+padding:0 20px;
+z-index:100;
 }
 
-.navbar {
-    max-width: 1300px;
-    margin: auto;
-    padding: 16px 24px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.navbar{
+max-width:1300px;
+margin:auto;
+padding:16px 24px;
+border-radius:30px;
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 
-/* ========================= */
+.menu-btn{
+background:#fff;
+width:56px;
+height:56px;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+}
+
+.dropdown{
+position:absolute;
+right:0;
+top:80px;
+width:260px;
+border-radius:30px;
+overflow:hidden;
+display:none;
+}
+
+.dropdown a{
+display:block;
+padding:18px 24px;
+font-weight:600;
+color:#1b4332;
+text-decoration:none;
+border-bottom:1px solid rgba(45,106,79,.08);
+}
+
+.dropdown a:hover{
+background:#f4fff8;
+}
+
+/* ======================= */
 /* HERO */
-/* ========================= */
+/* ======================= */
 
-.hero {
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 160px 20px 120px;
-    background:
-    radial-gradient(circle at top, rgba(255,255,255,0.9) 0%, rgba(209,242,229,1) 60%);
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:180px 20px 120px;
+position:relative;
+overflow:hidden;
+
+background:
+radial-gradient(circle at top,
+rgba(255,255,255,.9),
+rgba(209,242,229,1) 60%);
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(45,106,79,0.18), transparent 70%);
-    top: -250px;
-    left: -200px;
-    animation: pulseGlow 8s infinite ease-in-out;
+.hero::before{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+background:
+radial-gradient(circle,
+rgba(45,106,79,.15),
+transparent 70%);
+top:-250px;
+left:-250px;
+animation:pulse 10s infinite ease-in-out;
 }
 
-.hero::after {
-    content: "";
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255,165,0,0.12), transparent 70%);
-    bottom: -250px;
-    right: -200px;
-    animation: pulseGlow 10s infinite ease-in-out;
+.hero::after{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+background:
+radial-gradient(circle,
+rgba(255,165,0,.12),
+transparent 70%);
+bottom:-250px;
+right:-250px;
+animation:pulse 12s infinite ease-in-out;
 }
 
-@keyframes pulseGlow {
-    0% { transform: scale(1); opacity: .5; }
-    50% { transform: scale(1.2); opacity: .9; }
-    100% { transform: scale(1); opacity: .5; }
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.2);}
+100%{transform:scale(1);}
 }
 
-.hero-logo {
-    width: 260px;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 40px;
-    border: 6px solid white;
-    box-shadow: 0 0 80px rgba(45,106,79,0.3);
-    animation: floating 5s ease-in-out infinite;
+.hero-logo{
+width:260px;
+height:260px;
+object-fit:cover;
+border-radius:40px;
+border:6px solid white;
+box-shadow:0 0 80px rgba(45,106,79,.25);
+animation:floating 5s ease-in-out infinite;
 }
 
-@keyframes floating {
-    0% { transform: translateY(0px) rotate(-2deg);}
-    50% { transform: translateY(-20px) rotate(2deg);}
-    100% { transform: translateY(0px) rotate(-2deg);}
+@keyframes floating{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0px);}
 }
 
-.hero-title {
-    font-size: clamp(4rem, 11vw, 10rem);
-    line-height: .88;
-    letter-spacing: -0.08em;
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-top: 50px;
+.hero-title{
+font-size:clamp(4rem,11vw,10rem);
+line-height:.88;
+font-weight:700;
+font-family:'Fredoka',sans-serif;
+letter-spacing:-.08em;
+text-transform:uppercase;
+margin-top:50px;
 }
 
-.hero-sub {
-    max-width: 850px;
-    margin: 40px auto 0;
-    color: #2d6a4f;
-    font-size: 20px;
-    line-height: 1.7;
+.hero-sub{
+max-width:900px;
+margin:40px auto 0;
+font-size:20px;
+line-height:1.7;
+color:#2d6a4f;
 }
 
-.hero-buttons {
-    margin-top: 50px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
+.hero-buttons{
+margin-top:50px;
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
 }
 
-.hero-stats {
-    margin-top: 70px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
+/* ======================= */
+/* STATS */
+/* ======================= */
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:80px;
 }
 
-.stat-card {
-    padding: 30px;
-    border-radius: 30px;
+.stat-card{
+padding:40px;
+border-radius:35px;
+text-align:center;
 }
 
-.stat-number {
-    font-size: 56px;
-    font-family: 'Fredoka', sans-serif;
-    font-weight: bold;
+.stat-number{
+font-size:58px;
+font-family:'Fredoka',sans-serif;
+font-weight:bold;
 }
 
-/* ========================= */
-/* TICKER */
-/* ========================= */
+/* ======================= */
+/* STICKERS */
+/* ======================= */
 
-.ticker-wrap {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    overflow: hidden;
-    background: rgba(255,255,255,0.5);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(45,106,79,0.1);
+.sticker-card{
+border-radius:35px;
+overflow:hidden;
+transition:.3s ease;
 }
 
-.ticker {
-    display: flex;
-    width: max-content;
-    animation: tickerMove 30s linear infinite;
+.sticker-card:hover{
+transform:translateY(-8px);
 }
 
-.ticker span {
-    white-space: nowrap;
-    padding: 18px 50px;
-    font-family: 'Fredoka', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: .3em;
-    font-size: 13px;
+.sticker-card img{
+width:100%;
+display:block;
 }
 
-@keyframes tickerMove {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+/* ======================= */
+/* FLOATING BANANA */
+/* ======================= */
+
+.banana{
+position:fixed;
+top:-100px;
+font-size:28px;
+z-index:1;
+opacity:.5;
+animation:fall linear forwards;
+pointer-events:none;
 }
 
-/* ========================= */
-/* SECTION */
-/* ========================= */
-
-.section {
-    padding: 140px 20px;
+@keyframes fall{
+0%{
+transform:translateY(-100px) rotate(0deg);
+opacity:0;
+}
+10%{
+opacity:.5;
+}
+100%{
+transform:translateY(120vh) rotate(360deg);
+opacity:0;
+}
 }
 
-.section-title {
-    font-size: clamp(3rem, 7vw, 6rem);
-    line-height: .95;
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
+/* ======================= */
+/* SCROLL TOP */
+/* ======================= */
+
+#topBtn{
+position:fixed;
+bottom:30px;
+right:30px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:#2d6a4f;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+cursor:pointer;
+z-index:100;
+display:none;
 }
 
-.card {
-    border-radius: 40px;
-    overflow: hidden;
-    transition: .3s ease;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-.card img {
-    width: 100%;
-    display: block;
-}
-
-/* ========================= */
-/* FOOTER */
-/* ========================= */
-
-footer {
-    padding: 120px 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-/* ========================= */
+/* ======================= */
 /* MOBILE */
-/* ========================= */
+/* ======================= */
 
 @media(max-width:768px){
 
-.hero-logo {
-    width: 180px;
-    height: 180px;
+.hero-logo{
+width:180px;
+height:180px;
 }
 
-.hero-sub {
-    font-size: 15px;
+.hero-sub{
+font-size:15px;
 }
 
-.hero-stats {
-    grid-template-columns: 1fr;
+.stats-grid{
+grid-template-columns:1fr;
 }
 
-.stat-number {
-    font-size: 42px;
-}
-
-.section {
-    padding: 90px 20px;
+.section{
+padding:90px 20px;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- ========================= -->
+<!-- ======================= -->
 <!-- NAVBAR -->
-<!-- ========================= -->
+<!-- ======================= -->
 
 <div class="nav-wrap">
 
@@ -320,7 +372,7 @@ footer {
 <div class="flex items-center gap-4">
 
 <img src="G.jpg"
-class="w-14 h-14 rounded-2xl border border-white">
+class="w-14 h-14 rounded-2xl border border-white"/>
 
 <div class="font-fredoka text-2xl font-bold uppercase">
 BANANA<span class="text-[#2d6a4f]">APE</span>
@@ -328,14 +380,33 @@ BANANA<span class="text-[#2d6a4f]">APE</span>
 
 </div>
 
-<div class="flex items-center gap-5 text-xl">
+<div class="relative">
+
+<div id="menuBtn"
+class="menu-btn">
+
+<img src="solana.PNG"
+class="w-10 h-10 rounded-xl"/>
+
+</div>
+
+<div id="dropdown"
+class="dropdown glass">
 
 <a href="https://x.com/bape_fun" target="_blank">
-<i class="fab fa-twitter"></i>
+𝕏 Twitter
 </a>
 
 <a href="https://t.me/BAPE_fun" target="_blank">
-<i class="fab fa-telegram"></i>
+Telegram
+</a>
+
+<a href="farm.html">
+Banana Farm
+</a>
+
+<a href="whitepaper.html">
+Whitepaper
 </a>
 
 </div>
@@ -344,16 +415,18 @@ BANANA<span class="text-[#2d6a4f]">APE</span>
 
 </div>
 
-<!-- ========================= -->
+</div>
+
+<!-- ======================= -->
 <!-- HERO -->
-<!-- ========================= -->
+<!-- ======================= -->
 
 <section class="hero">
 
-<div class="max-w-7xl relative z-10">
+<div class="max-w-7xl text-center relative z-10">
 
 <img src="G.jpg"
-class="hero-logo mx-auto">
+class="hero-logo mx-auto"/>
 
 <h1 class="hero-title">
 
@@ -368,8 +441,8 @@ ONLY BANANA
 <p class="hero-sub">
 
 The most organic jungle ape on Solana.  
-No VC. No roadmap. No fake alpha.  
-Just memes, bananas, and tribal energy 🍌
+No fake roadmap. No VC. No fake alpha.  
+Just jungle energy, memes, and bananas 🍌
 
 </p>
 
@@ -379,28 +452,33 @@ Just memes, bananas, and tribal energy 🍌
 target="_blank"
 class="btn-main">
 
-JOIN THE TRIBE 🌿
+JOIN TELEGRAM ✈️
 
 </a>
 
 <button onclick="copyCA()"
-class="btn-main bg-white text-[#1b4332] border border-[#2d6a4f]/20">
+class="btn-main bg-white text-[#1b4332]">
 
+<span id="copyText">
 COPY CA 🍌
+</span>
 
 </button>
 
 </div>
 
-<div class="hero-stats max-w-4xl mx-auto">
+<!-- STATS -->
+
+<div class="stats-grid max-w-5xl mx-auto">
 
 <div class="stat-card glass">
 
-<div class="stat-number">
-257
+<div id="twitter-count"
+class="stat-number">
+0
 </div>
 
-<div class="uppercase tracking-[0.3em] text-xs mt-2">
+<div class="uppercase tracking-[0.3em] text-xs mt-3">
 Twitter
 </div>
 
@@ -408,11 +486,12 @@ Twitter
 
 <div class="stat-card glass">
 
-<div class="stat-number">
-179
+<div id="telegram-count"
+class="stat-number">
+0
 </div>
 
-<div class="uppercase tracking-[0.3em] text-xs mt-2">
+<div class="uppercase tracking-[0.3em] text-xs mt-3">
 Telegram
 </div>
 
@@ -424,7 +503,7 @@ Telegram
 SOON
 </div>
 
-<div class="uppercase tracking-[0.3em] text-xs mt-2">
+<div class="uppercase tracking-[0.3em] text-xs mt-3">
 Holders
 </div>
 
@@ -434,21 +513,29 @@ Holders
 
 </div>
 
-<div class="ticker-wrap">
+</section>
 
-<div class="ticker">
+<!-- ======================= -->
+<!-- DEXSCREENER -->
+<!-- ======================= -->
 
-<span>🍌 ORGANIC APE</span>
-<span>🌿 FAIR LAUNCH</span>
-<span>🚀 SOLANA MEME</span>
-<span>🦍 NO VC</span>
-<span>🍌 ONLY BANANA</span>
+<section class="section">
 
-<span>🍌 ORGANIC APE</span>
-<span>🌿 FAIR LAUNCH</span>
-<span>🚀 SOLANA MEME</span>
-<span>🦍 NO VC</span>
-<span>🍌 ONLY BANANA</span>
+<div class="max-w-6xl mx-auto">
+
+<h2 class="section-title text-center mb-14">
+
+LIVE <span class="gold-text">CHART</span>
+
+</h2>
+
+<div class="glass p-4 rounded-[40px] overflow-hidden">
+
+<iframe id="dexFrame"
+src=""
+style="width:100%;height:650px;border:none;border-radius:30px;"
+loading="lazy">
+</iframe>
 
 </div>
 
@@ -456,153 +543,42 @@ Holders
 
 </section>
 
-<!-- ========================= -->
-<!-- ABOUT -->
-<!-- ========================= -->
+<!-- ======================= -->
+<!-- TOKENOMICS -->
+<!-- ======================= -->
 
-<section class="section">
+<section class="section bg-white">
 
-<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+<div class="max-w-5xl mx-auto">
 
-<div>
+<h2 class="section-title text-center mb-16">
 
-<img src="G.jpg"
-class="rounded-[40px] border-[6px] border-white shadow-2xl">
-
-</div>
-
-<div>
-
-<h2 class="section-title">
-
-ORGANIC <br>
-
-<span class="gold-text">
-JUNGLE
-</span>
+FOREST <span class="gold-text">TOKENOMICS</span>
 
 </h2>
 
-<p class="mt-10 text-lg leading-relaxed text-[#2d6a4f]">
+<div class="grid md:grid-cols-2 gap-8">
 
-BananaApe is a meme movement powered by jungle energy.
-
-No fake roadmap.  
-No fake promises.  
-No overthinking.
-
-Just apes and bananas 🍌
-
-</p>
-
-<div class="grid grid-cols-2 gap-5 mt-10">
-
-<div class="glass p-8 rounded-[30px]">
+<div class="glass p-10 rounded-[40px]">
 
 <div class="font-fredoka text-5xl font-bold">
 1B
 </div>
 
-<div class="uppercase tracking-[0.2em] text-xs mt-3">
-Supply
+<div class="uppercase tracking-[0.3em] text-xs mt-4">
+Total Supply
 </div>
 
 </div>
 
-<div class="glass p-8 rounded-[30px]">
+<div class="glass p-10 rounded-[40px]">
 
 <div class="font-fredoka text-5xl font-bold">
-Fair
+100%
 </div>
 
-<div class="uppercase tracking-[0.2em] text-xs mt-3">
-Launch
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- MEMES -->
-<!-- ========================= -->
-
-<section class="section bg-white">
-
-<div class="max-w-7xl mx-auto">
-
-<div class="text-center mb-20">
-
-<h2 class="section-title">
-
-MEME <span class="gold-text">CULTURE</span>
-
-</h2>
-
-<p class="mt-8 text-lg text-[#2d6a4f]">
-The jungle spreads through memes 🍌
-</p>
-
-</div>
-
-<div class="grid md:grid-cols-3 gap-8">
-
-<div class="card glass">
-
-<img src="stickers/gm.png">
-
-<div class="p-8">
-
-<h3 class="font-fredoka text-3xl font-bold">
-GM APES 🌞
-</h3>
-
-<p class="mt-4 text-[#2d6a4f]">
-Wake up. Eat banana. Raid timeline.
-</p>
-
-</div>
-
-</div>
-
-<div class="card glass">
-
-<img src="stickers/wenmoon.png">
-
-<div class="p-8">
-
-<h3 class="font-fredoka text-3xl font-bold">
-WEN MOON 🚀
-</h3>
-
-<p class="mt-4 text-[#2d6a4f]">
-Nobody knows. The jungle decides.
-</p>
-
-</div>
-
-</div>
-
-<div class="card glass">
-
-<img src="stickers/hodl.png">
-
-<div class="p-8">
-
-<h3 class="font-fredoka text-3xl font-bold">
-HODL BANANA 🍌
-</h3>
-
-<p class="mt-4 text-[#2d6a4f]">
-Weak hands leave the jungle first.
-</p>
-
+<div class="uppercase tracking-[0.3em] text-xs mt-4">
+Organic Fair Launch
 </div>
 
 </div>
@@ -613,15 +589,107 @@ Weak hands leave the jungle first.
 
 </section>
 
-<!-- ========================= -->
-<!-- JUPITER -->
-<!-- ========================= -->
+<!-- ======================= -->
+<!-- STREAMFLOW -->
+<!-- ======================= -->
 
 <section class="section">
 
+<div class="max-w-6xl mx-auto">
+
+<div class="glass rounded-[45px] p-10 md:p-14">
+
+<div class="grid md:grid-cols-2 gap-12 items-center">
+
+<div>
+
+<img src="G.jpg"
+class="rounded-[35px] border-[5px] border-white shadow-xl"/>
+
+</div>
+
+<div>
+
+<div class="inline-flex items-center gap-2 bg-green-100 px-5 py-2 rounded-full mb-6">
+
+<div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+
+<div class="uppercase text-xs tracking-[0.25em] font-fredoka">
+Powered By Streamflow
+</div>
+
+</div>
+
+<h2 class="section-title">
+
+BANANA <br>
+
+<span class="gold-text">
+FARM
+</span>
+
+</h2>
+
+<p class="mt-8 text-lg text-[#2d6a4f] leading-relaxed">
+
+Institutional-grade locking and staking for the tribe 🍌
+
+</p>
+
+<div class="grid grid-cols-2 gap-4 mt-10">
+
+<div class="glass p-5 rounded-[25px]">
+
+<div class="font-fredoka text-2xl font-bold">
+SAFE
+</div>
+
+<div class="text-xs uppercase tracking-[0.2em] mt-2">
+Security
+</div>
+
+</div>
+
+<div class="glass p-5 rounded-[25px]">
+
+<div class="font-fredoka text-2xl font-bold">
+LIVE
+</div>
+
+<div class="text-xs uppercase tracking-[0.2em] mt-2">
+Rewards
+</div>
+
+</div>
+
+</div>
+
+<a href="farm.html"
+class="btn-main mt-10">
+
+OPEN BANANA FARM 🌿
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================= -->
+<!-- JUPITER -->
+<!-- ======================= -->
+
+<section class="section bg-white">
+
 <div class="max-w-5xl mx-auto text-center">
 
-<h2 class="section-title mb-10">
+<h2 class="section-title mb-14">
 
 BUY <span class="gold-text">$BAPE</span>
 
@@ -635,16 +703,116 @@ class="glass p-4 rounded-[40px] max-w-xl mx-auto">
 
 </section>
 
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
+<!-- ======================= -->
+<!-- STICKERS -->
+<!-- ======================= -->
 
-<footer>
+<section class="section">
+
+<div class="max-w-7xl mx-auto">
+
+<div class="text-center mb-16">
+
+<h2 class="section-title">
+
+STICKER <span class="gold-text">PACK</span>
+
+</h2>
+
+<p class="mt-6 text-lg text-[#2d6a4f]">
+
+Download and spam the jungle 🍌
+
+</p>
+
+</div>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+<div class="sticker-card glass">
+
+<img src="stickers/gm.png"/>
+
+<a href="stickers/gm.png"
+download
+class="btn-main w-full rounded-none">
+
+DOWNLOAD
+
+</a>
+
+</div>
+
+<div class="sticker-card glass">
+
+<img src="stickers/wenmoon.png"/>
+
+<a href="stickers/wenmoon.png"
+download
+class="btn-main w-full rounded-none">
+
+DOWNLOAD
+
+</a>
+
+</div>
+
+<div class="sticker-card glass">
+
+<img src="stickers/hodl.png"/>
+
+<a href="stickers/hodl.png"
+download
+class="btn-main w-full rounded-none">
+
+DOWNLOAD
+
+</a>
+
+</div>
+
+<div class="sticker-card glass">
+
+<img src="stickers/love.png"/>
+
+<a href="stickers/love.png"
+download
+class="btn-main w-full rounded-none">
+
+DOWNLOAD
+
+</a>
+
+</div>
+
+</div>
+
+<div class="text-center mt-14">
+
+<a href="https://t.me/addstickers/BananaApeOfficial"
+target="_blank"
+class="btn-main">
+
+OPEN TELEGRAM STICKERS ✈️
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================= -->
+<!-- FOOTER -->
+<!-- ======================= -->
+
+<footer class="section bg-white">
 
 <img src="G.jpg"
-class="w-40 h-40 rounded-[40px] border-[6px] border-white shadow-2xl mx-auto">
+class="w-44 h-44 rounded-[40px] border-[6px] border-white shadow-2xl mx-auto"/>
 
-<h2 class="section-title mt-12">
+<h2 class="section-title mt-14 text-center">
 
 ONLY <br>
 
@@ -654,7 +822,7 @@ BANANA
 
 </h2>
 
-<p class="mt-8 text-lg text-[#2d6a4f] max-w-2xl mx-auto">
+<p class="mt-8 text-lg text-[#2d6a4f] max-w-2xl mx-auto text-center">
 
 Humans panic.  
 Apes stay in the jungle 🍌
@@ -667,6 +835,7 @@ Apes stay in the jungle 🍌
 target="_blank"
 class="btn-main">
 
+<i class="fab fa-twitter"></i>
 Twitter
 
 </a>
@@ -675,13 +844,22 @@ Twitter
 target="_blank"
 class="btn-main">
 
+<i class="fab fa-telegram"></i>
 Telegram
+
+</a>
+
+<a href="whitepaper.html"
+class="btn-main">
+
+<i class="fas fa-file-alt"></i>
+Whitepaper
 
 </a>
 
 </div>
 
-<p class="mt-16 text-xs uppercase tracking-[0.4em] text-[#2d6a4f] font-fredoka">
+<p class="mt-16 text-xs uppercase tracking-[0.35em] text-[#2d6a4f] font-fredoka text-center">
 
 BANANAAPE © 2026
 
@@ -689,21 +867,106 @@ BANANAAPE © 2026
 
 </footer>
 
+<!-- ======================= -->
+<!-- TOP BUTTON -->
+<!-- ======================= -->
+
+<div id="topBtn">
+
+<i class="fas fa-arrow-up"></i>
+
+</div>
+
+<!-- ======================= -->
+<!-- SCRIPT -->
+<!-- ======================= -->
+
 <script>
+
+/* ======================= */
+/* CONFIG */
+/* ======================= */
 
 const CA_KITA = "PASTE_YOUR_CA_HERE";
 
-function copyCA() {
+/* ======================= */
+/* DEXSCREENER */
+/* ======================= */
+
+document.getElementById("dexFrame").src =
+`https://dexscreener.com/solana/${CA_KITA}?embed=1&theme=light&trades=0&info=0`;
+
+/* ======================= */
+/* COPY CA */
+/* ======================= */
+
+function copyCA(){
 
 navigator.clipboard.writeText(CA_KITA);
 
-alert("CA copied 🍌");
+const txt = document.getElementById("copyText");
+
+txt.innerText = "CA COPIED 🍌";
+
+setTimeout(()=>{
+txt.innerText = "COPY CA 🍌";
+},2000);
 
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+/* ======================= */
+/* MENU */
+/* ======================= */
 
-setTimeout(initJupiter, 1000);
+const menuBtn = document.getElementById("menuBtn");
+const dropdown = document.getElementById("dropdown");
+
+menuBtn.addEventListener("click",()=>{
+
+dropdown.style.display =
+dropdown.style.display === "block"
+? "none"
+: "block";
+
+});
+
+/* ======================= */
+/* COUNTER */
+/* ======================= */
+
+function animateValue(id,start,end,duration){
+
+const obj=document.getElementById(id);
+
+let range=end-start;
+let current=start;
+let increment=end>start?1:-1;
+let stepTime=Math.abs(Math.floor(duration/range));
+
+const timer=setInterval(function(){
+
+current+=increment;
+
+obj.innerText=current;
+
+if(current==end){
+clearInterval(timer);
+}
+
+},stepTime);
+
+}
+
+animateValue("twitter-count",0,257,1500);
+animateValue("telegram-count",0,179,1500);
+
+/* ======================= */
+/* JUPITER */
+/* ======================= */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+setTimeout(initJupiter,1200);
 
 });
 
@@ -713,38 +976,88 @@ if(!window.Jupiter) return;
 
 window.Jupiter.init({
 
-displayMode: "integrated",
+displayMode:"integrated",
 
-integratedTargetId: "integrated-terminal",
+integratedTargetId:"integrated-terminal",
 
-endpoint: "https://api.mainnet-beta.solana.com",
+endpoint:"https://api.mainnet-beta.solana.com",
 
-formProps: {
-
+formProps:{
 initialInputMint:
 "So11111111111111111111111111111111111111112",
 
-initialOutputMint: CA_KITA,
+initialOutputMint:CA_KITA,
 
-fixedInputMint: true
-
+fixedInputMint:true
 },
 
-theme: {
-
-palette: {
-
-primary: "#2d6a4f",
-
-background: "#ffffff"
-
+theme:{
+palette:{
+primary:"#2d6a4f",
+background:"#ffffff"
 }
-
 }
 
 });
 
 }
+
+/* ======================= */
+/* SCROLL TOP */
+/* ======================= */
+
+const topBtn=document.getElementById("topBtn");
+
+window.onscroll=function(){
+
+if(document.documentElement.scrollTop>500){
+
+topBtn.style.display="flex";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+};
+
+topBtn.onclick=function(){
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+};
+
+/* ======================= */
+/* BANANA RAIN */
+/* ======================= */
+
+function createBanana(){
+
+const banana=document.createElement("div");
+
+banana.classList.add("banana");
+
+banana.innerText="🍌";
+
+banana.style.left=Math.random()*100+"vw";
+
+const duration=Math.random()*20+20;
+
+banana.style.animationDuration=duration+"s";
+
+document.body.appendChild(banana);
+
+setTimeout(()=>{
+banana.remove();
+},duration*1000);
+
+}
+
+setInterval(createBanana,4000);
 
 </script>
 
