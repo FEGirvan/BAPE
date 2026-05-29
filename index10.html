@@ -483,84 +483,67 @@ setInterval(createBanana, 6000);
 
 async function loadAlerts() {
 
-  try {
+try {
 
-    const response = await fetch("https://bape-radar-core--irvansurayuda8.replit.app/api/alerts");
-
-    const alerts = await response.json();
-
-    const container = document.getElementById("alerts-container");
-
-    container.innerHTML = "";
-
-    alerts.forEach(alert => {
-
-      let actionColor = "#2d6a4f";
-
-      if(alert.action === "sell") {
-        actionColor = "#dc2626";
-      }
-
-      container.innerHTML += `
-      
-      <div class="glass-morphism p-5 bg-white">
-
-        <div class="flex justify-between items-start">
-
-          <div>
-
-            <p class="font-bold text-lg text-[#1b4332]">
-              🐵 ${alert.walletName}
-            </p>
-
-            <p class="text-sm mt-1" style="color:${actionColor}">
-              ${alert.action.toUpperCase()} ${alert.tokenSymbol}
-            </p>
-
-            <p class="text-xs text-gray-500 mt-2">
-              Market Cap: ${alert.marketCap}
-            </p>
-
-            <p class="text-xs text-gray-400">
-              Size: ${alert.amountUsd}
-            </p>
-
-          </div>
-
-          <div class="text-right">
-
-            <p class="text-xs text-gray-400">
-              ${alert.timeAgo}
-            </p>
-
-            <p class="text-xs mt-2 text-[#2d6a4f] font-bold uppercase">
-              ${alert.confidence}
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      `;
-
-    });
-
-  } catch(err) {
-
-    console.error("Radar error:", err);
-
+const response = await fetch("https://bape-radar-core--irvansurayuda8.replit.app/api/alerts");
+const alerts = await response.json();
+const container = document.getElementById("alerts-container");
+const latestData = JSON.stringify(alerts);
+// prevent unnecessary rerender
+if(container.dataset.last === latestData) {
+  return;
+}
+container.dataset.last = latestData;
+container.innerHTML = "";
+alerts.forEach(alert => {
+  let actionColor = "#2d6a4f";
+  if(alert.action === "sell") {
+    actionColor = "#dc2626";
   }
+  const card = document.createElement("div");
+  card.className = "glass-morphism p-5 bg-white animate-pulse";
+  card.innerHTML = `
+  
+    <div class="flex justify-between items-start">
+      <div>
+        <p class="font-bold text-lg text-[#1b4332]">
+          🐵 ${alert.walletName}
+        </p>
+        <p class="text-sm mt-1" style="color:${actionColor}">
+          ${alert.action.toUpperCase()} ${alert.tokenSymbol}
+        </p>
+        <p class="text-xs text-gray-500 mt-2">
+          Market Cap: ${alert.marketCap || "Unknown"}
+        </p>
+        <p class="text-xs text-gray-400">
+          Size: ${alert.amountUsd || "Unknown"}
+        </p>
+      </div>
+      <div class="text-right">
+        <p class="text-xs text-gray-400">
+          ${alert.timeAgo}
+        </p>
+        <p class="text-xs mt-2 text-[#2d6a4f] font-bold uppercase">
+          ${alert.confidence || "medium"}
+        </p>
+      </div>
+    </div>
+  `;
+  container.appendChild(card);
+});
+
+} catch(err) {
+
+console.error("Radar error:", err);
+
+}
 
 }
 
 loadAlerts();
 
-setInterval(loadAlerts, 10000);
-
-    
-
+// realtime polling
+setInterval(loadAlerts, 5000);
 </script>
 </body>
 </html>
