@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WOOF</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Inter,sans-serif;
+background:#ff9f0a;
+color:white;
+overflow-x:hidden;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 0;
+}
+
+.logo{
+font-size:32px;
+font-weight:800;
+}
+
+.menu{
+display:flex;
+gap:24px;
+}
+
+.menu a{
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+.hero{
+min-height:90vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero img{
+width:280px;
+margin-bottom:30px;
+}
+
+.hero h1{
+font-size:90px;
+font-weight:800;
+}
+
+.hero p{
+font-size:24px;
+margin-top:15px;
+opacity:.9;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:16px 34px;
+background:white;
+color:#ff8a00;
+border-radius:999px;
+text-decoration:none;
+font-weight:800;
+}
+
+.section{
+padding:120px 0;
+}
+
+.section h2{
+font-size:56px;
+margin-bottom:25px;
+}
+
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.card{
+background:rgba(255,255,255,.12);
+padding:30px;
+border-radius:24px;
+backdrop-filter:blur(10px);
+}
+
+.card h3{
+margin-bottom:12px;
+}
+
+.token-box{
+background:white;
+color:black;
+padding:40px;
+border-radius:30px;
+margin-top:30px;
+}
+
+.footer{
+padding:50px 0;
+text-align:center;
+opacity:.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<nav>
+<div class="logo">WOOF</div>
+
+<div class="menu">
+<a href="#about">About</a>
+<a href="#token">Token</a>
+<a href="#community">Community</a>
+</div>
+</nav>
+
+<section class="hero">
+
+<div>
+
+<img src="logo.png" alt="WOOF Logo">
+
+<h1>WOOF</h1>
+
+<p>The loudest dog on Solana.</p>
+
+<a href="#" class="btn">
+Launch on Bonk.fun
+</a>
+
+</div>
+
+</section>
+
+<section id="about" class="section">
+
+<h2>Why WOOF?</h2>
+
+<p>
+No utility.
+No roadmap.
+No promises.
+Just WOOF.
+</p>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>Community First</h3>
+<p>Powered by pure meme energy.</p>
+</div>
+
+<div class="card">
+<h3>Bonk.fun Native</h3>
+<p>Built for Solana degens.</p>
+</div>
+
+<div class="card">
+<h3>100% Meme</h3>
+<p>No VC. No suits. Just dogs.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="token" class="section">
+
+<h2>Token Info</h2>
+
+<div class="token-box">
+
+<p><b>Name:</b> WOOF</p>
+<p><b>Ticker:</b> $WOOF</p>
+<p><b>Chain:</b> Solana</p>
+<p><b>Launch:</b> Bonk.fun</p>
+
+</div>
+
+</section>
+
+<section id="community" class="section">
+
+<h2>Join The Pack</h2>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>X / Twitter</h3>
+<p>@woofcoin</p>
+</div>
+
+<div class="card">
+<h3>Telegram</h3>
+<p>Coming Soon</p>
+</div>
+
+<div class="card">
+<h3>Bonk.fun</h3>
+<p>Trade WOOF</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="footer">
+© 2026 WOOF
+</div>
+
+</div>
+
+</body>
+</html>
